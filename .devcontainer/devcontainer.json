@@ -1,0 +1,37 @@
+{
+    "name": "ROS1 Noetic Development",
+    "dockerFile": "Dockerfile",
+    "context": "..",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder},target=/workspace,type=bind",
+        "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+        },
+        "extensions": [
+            "ms-vscode.cpptools",
+            "ms-python.python",
+            "ms-azuretools.vscode-docker",
+            "ms-iot.vscode-ros"
+        ]}
+    },
+    "remoteEnv": {
+        "DISPLAY": "${localEnv:DISPLAY}"
+    },
+    "runArgs": [
+		"--network=host",
+        "--env", "DISPLAY=${localEnv:DISPLAY}",
+		"--cap-add=SYS_PTRACE",
+		"--security-opt=seccomp:unconfined",
+		"--security-opt=apparmor:unconfined",
+		"--volume=/dev/input:/dev/input",
+		"--volume=/etc/localtime:/etc/localtime",
+		"--ipc=host",
+		"--runtime=nvidia",
+		"--privileged"
+    ]
+}
