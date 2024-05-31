@@ -21,8 +21,8 @@ Outside of the docker container, open a terminal.
 
 This step requires 
 
-- a specific python3.8.10 environment. 
-- a regular Forces Pro license placed under `~/forces_pro_client/`
+- a specific python3.8.10 environment (see `requirements.txt`). 
+- a regular Forces Pro license placed under `~/forces_pro_client/` *outside* of the container
 
 Navigate to `mpc_planner_ws/src/mpc_planner`. If you have `conda` installed, this may be the easiest. If not, you can use `pyenv`.
 
@@ -76,7 +76,7 @@ poetry install --no-root
 ```
 
 ### Generate the solver
-Run
+Set `solver_settings/floating_license` in `mpc_planner_jackalsimulator/config/settings.yaml` to `true`. Then run
 
 ```
 poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py true
