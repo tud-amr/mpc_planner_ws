@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     python3-vcstool \
     python3-wstool \
     python3-catkin-tools \
+    iproute2 \
     && rm -rf /var/lib/apt/lists/*
 
 # Setup ROS environment

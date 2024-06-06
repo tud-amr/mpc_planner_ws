@@ -2,11 +2,11 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/oscardegroot/mpc_planner.git
-        version: 20d822d20e6d5cb7b2da9720119845d959401b39
+        version: 1455d576eea0143ed0e08fe739f0a7e6038329d3
     guidance_planner:
         type: git
         url: https://github.com/oscardegroot/guidance_planner.git
-        version: 6fd3b6dfcf7b88e62b831e7ed22e5da2d4526212
+        version: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
     ros_tools:
         type: git
         url: https://github.com/oscardegroot/ros_tools.git
