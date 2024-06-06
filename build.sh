@@ -7,4 +7,5 @@ clear
 BUILD_TYPE=RelWithDebInfo # Release, Debug, RelWithDebInfo, MinSizeRel
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
-catkin build mpc_planner_jackalsimulator
+# catkin build mpc_planner_jackalsimulator
+catkin build mpc_planner_jackal
