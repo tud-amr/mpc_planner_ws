@@ -1,3 +1,7 @@
+# MPC Planner (VSCode Docker)
+
+
+
 # Install
 In VSCode install these extensions:
 
@@ -16,7 +20,7 @@ chmod +x build.sh
 
 This will clone required repositories and will install dependencies.
 
-# Generate Solver
+## Generating a Solver (Forces Pro)
 Outside of the docker container, open a terminal. 
 
 This step requires 
@@ -76,7 +80,19 @@ poetry install --no-root
 ```
 
 ### Generate the solver
-Set `solver_settings/floating_license` in `mpc_planner_jackalsimulator/config/settings.yaml` to `true`. Then run
+In a docker, a floating license is needed to run the solver. If you have such a license, set `solver_settings/floating_license` in `mpc_planner_jackalsimulator/config/settings.yaml` to `true`. 
+
+<details>
+    <summary><i>Floating License Forces Pro Solver</i></summary>
+
+Go to my.embotech.com, log in to your account. Click on a license -> Download `Floating Licenses Proxy Standalone (Linux 64-bit) - FORCES PRO v5.1.0 onwards` -> unzip.
+
+In the folder, `chmod +x forcespro_floating_licenses_proxy`. Then you can run the proxy with:
+`./forcespro_floating_licenses_proxy`.
+
+</details>
+
+With the solver set up, run:
 
 ```
 poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py true
@@ -84,8 +100,51 @@ poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_s
 
 You should see output indicating that the solver is being generated.
 
+
+
+
+
 # Build
-In VSCode, press Ctrl + Shift + B. Select `Build` (or alternatively run `build.sh`). This will build the ROS workspace.
+In VSCode, press Ctrl + Shift + B. Select `Build` (or alternatively run `build.sh`). This will build the ROS workspace. Default system is `jackalsimulator`. If you want to build a difference planner, you can change it in `build.sh`.
 
 # Run
-**Jackal Simulator:** In VSCode, press Ctrl + Shift + B. Select `Run Simulator`.
+
+<details open>
+    <summary><b>Jackal Simulator</b></summary>
+
+In VSCode, press Ctrl + Shift + B. Select `Run Simulator`.
+</details>
+
+<details>
+    <summary><b>Jackal</b></summary>
+
+You need to configure the following:
+
+- *Your IP:*. Run `ip a`, copy the ip address of your ethernet connection into `connect_to_jackal.sh` at `ROS_IP`. 
+- *Which Jackal:* See the last line in `connect_to_jackal.sh`.
+- *The ROS_MASTER_URI and ROS_IP:* Run `source connect_to_jackal.sh`
+
+Finally, run the planner: `roslaunch mpc_planner_jackal ros1_jackal.launch`.
+
+To change the detected obstacles, see `ros1_jackal.launch`.
+</details>
+
+# Examples
+
+### Jackal Simulator
+Clearpath Jackal ground robot simulator  (`mpc_planner_jackalsimulator`) with dynamic obstacles.
+
+
+
+<img src="docs/tmpc.gif" width="400">
+
+
+ROS Navigation stack  (`mpc_planner_rosnavigation`) with static and dynamic obstacles. This example features
+- Curvature-Aware MPC (https://ieeexplore.ieee.org/document/10161177)
+- Topology-Driven MPC for dynamic obstacle avoidance (https://arxiv.org/pdf/2401.06021)
+- Decomp Util for static obstacle avoidance ()
+
+<img src="docs/rosnavigation.gif" width="800">
+
+
+
