@@ -2,7 +2,7 @@ repositories:
     # mpc_planner:
     #    type: git
     #    url: https://github.com/oscardegroot/mpc_planner.git
-    #    version: b813628d0e5d7247a1961d45bd775a4075de65cd
+    #    version: 6535b3fe855f590dde8193cf6e2902f057adc8b9
     # guidance_planner:
     #    type: git
     #    url: https://github.com/oscardegroot/guidance_planner.git

@@ -10,9 +10,6 @@ if [ -f workspace/devel/setup.sh ]; then
   . workspace/devel/setup.sh
 fi
 
-# Acados
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspace/acados/lib
-export ACADOS_SOURCE_DIR="/workspace/acados"
 export POETRY_PATH="/workspace/poetry/bin/poetry"
 
 # Generate a solver if enabled

@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y \
 
 # Setup ROS environment
 RUN echo "source /opt/ros/noetic/setup.bash" >> /root/.bashrc
+RUN echo "export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspace/acados/lib" >> /root/.bashrc
+RUN echo "export ACADOS_SOURCE_DIR=/workspace/acados" >> /root/.bashrc
 
 ENV SHELL /bin/bash
 

@@ -1,12 +1,26 @@
 {
     "version": "2.0.0",
     "tasks": [
-        // Build tasks
+        // JackalSimulator
         {
-            "label": "build",
-            "detail": "Build workspace (default)",
+            "label": "JackalSimulator: Generate Solver",
+            "command": "cd src/mpc_planner && /workspace/poetry/bin/poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
             "type": "shell",
-            "command": "./build.sh",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "JackalSimulator: Build",
+            "detail": "Build the ROS Package mpc_planner_jackalsimulator",
+            "type": "shell",
+            "command": "source /workspace/devel/setup.bash && ./build.sh jackalsimulator",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -14,8 +28,86 @@
             "problemMatcher": "$gcc"
         },
         {
-            "label": "Run Simulator",
-            "command": "source /workspace/devel/setup.bash && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch",
+            "label": "JackalSimulator: Generate solver and build",
+            "detail": "Generate the solver and build mpc_planner_jackalsimulator",
+            "type": "shell",
+            "command": "./build.sh jackalsimulator true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "JackalSimulator: Run Simulator",
+            "command": "source /opt/ros/noetic/setup.sh && source /workspace/devel/setup.bash && source /workspace/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        // ROS Navigation Stack
+        {
+            "label": "ROS Navigation: Generate Solver",
+            "command": "cd src/mpc_planner && /workspace/poetry/bin/poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            }
+        },
+        {
+            "label": "ROS Navigation: Build",
+            "detail": "Build the mpc package ROS Navigation",
+            "type": "shell",
+            "command": "./build.sh rosnavigation",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "ROS Navigation: Generate solver and build",
+            "detail": "Generate the solver and build the mpc package configured in build.sh",
+            "type": "shell",
+            "command": "./build.sh rosnavigation true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "ROS Navigation: Run Simulator",
+            "command": "source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_rosnavigation ros1_rosnavigation.launch",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true,
+                // "close": true
+            }
+        },
+        {
+            "label": "Run Tests",
+            "command": "source devel/setup.bash && cd src/mpc_planner && /workspace/poetry/bin/poetry run python -m pytest solver_generator/test/ --cov-report term --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70", //--cov-report=xml:solver_generator/coverage.xml --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -30,7 +122,7 @@
         },
         {
             "label": "Run Jackal (REAL)",
-            "command": "source devel/setup.zsh && roslaunch mpc_planner_jackal ros1_jackal.launch",
+            "command": "source devel/setup.bash && roslaunch mpc_planner_jackal ros1_jackal.launch",
             "type": "shell",
             "group": {
                 "kind": "build",
