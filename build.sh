@@ -1,6 +1,6 @@
 #!/bin/bash
 # Arguments: system_type generate_solver
-
+cd /workspace
 clear
 
 . /opt/ros/noetic/setup.sh
@@ -9,6 +9,10 @@ clear
 if [ -f workspace/devel/setup.sh ]; then
   . workspace/devel/setup.sh
 fi
+
+# Acados
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspace/acados/lib
+export ACADOS_SOURCE_DIR="/workspace/acados"
 
 # Generate a solver if enabled
 if [ -z "$2" ]; then
@@ -26,6 +30,7 @@ else
       echo "Failed to build the solver."
       exit 0
     fi
+    cd ../..
 
   else
     echo "Not building the solver."

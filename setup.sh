@@ -45,7 +45,6 @@ if [ ! -d "/workspace/acados/build" ]; then
     mv t_renderer-v0.0.34-linux t_renderer
     chmod +x t_renderer
     cd ../..
-    # make shared_library
 fi
 echo "Acados is installed."
 
