@@ -13,12 +13,29 @@ jobs:
       - name: Checkout (GitHub)
         uses: actions/checkout@v3
 
+      - name: Checkout private planner
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/oscardegroot/mpc_planner.git
+          token: ${{ secrets.CI_REPO_PAT }}
+          path: .
+          ref: 32499d30aec8b2f3878e3cd1d9377a31a066310f
+
+      - name: Checkout private guidance planner
+        uses: actions/checkout@v2
+        with:
+          repository: https://github.com/oscardegroot/guidance_planner.git
+          token: ${{ secrets.CI_REPO_PAT }}
+          path: .
+          ref: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
+
       - name: Build and run dev container task
         uses: devcontainers/ci@v0.3
         with:
           # Change this to be your CI task/script
           runCmd: |
-            sed -i 's|https://github.com/|https://${{ secrets.CI_REPO_PAT }}@github.com/|g' planner.repos
+            mv mpc_planner src/mpc_planner
+            mv guidance_planner src/guidance_planner
             chmod +x setup.sh
             chmod +x build.sh
             ./setup.sh
