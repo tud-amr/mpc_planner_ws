@@ -3,6 +3,7 @@
 set -e
 
 # Import repositories from vcs file
+mkdir -p src
 vcs import < planner.repos src --recursive 
 # vcs import < lab.repos src --recursive # Uncomment to clone lab packages
 
