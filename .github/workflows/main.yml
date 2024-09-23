@@ -15,6 +15,9 @@ jobs:
 
       - name: Create src directory
         run: mkdir -p src
+
+      - name: Disable NVidia runtime in the container
+        run: sed -i '/"--runtime=nvidia",/d' .devcontainer/devcontainer.json
         
       - name: Checkout private planner
         uses: actions/checkout@v3
