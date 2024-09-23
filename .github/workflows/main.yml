@@ -22,7 +22,7 @@ jobs:
           repository: oscardegroot/mpc_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: src/mpc_planner
-          ref: b813628d0e5d7247a1961d45bd775a4075de65cd
+          ref: 6535b3fe855f590dde8193cf6e2902f057adc8b9
 
       - name: Checkout private guidance planner
         uses: actions/checkout@v3
