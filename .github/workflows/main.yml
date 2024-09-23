@@ -16,7 +16,7 @@ jobs:
       - name: Checkout private planner
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/oscardegroot/mpc_planner.git
+          repository: oscardegroot/mpc_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: .
           ref: 32499d30aec8b2f3878e3cd1d9377a31a066310f
@@ -24,7 +24,7 @@ jobs:
       - name: Checkout private guidance planner
         uses: actions/checkout@v2
         with:
-          repository: https://github.com/oscardegroot/guidance_planner.git
+          repository: oscardegroot/guidance_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: .
           ref: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
