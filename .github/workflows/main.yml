@@ -1,0 +1,24 @@
+name: 'build' 
+on: # rebuild any PRs and main branch changes
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout (GitHub)
+        uses: actions/checkout@v3
+
+      - name: Build and run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          # Change this to be your CI task/script
+          runCmd: |
+            chmod +x setup.sh
+            chmod +x build.sh
+            ./setup.sh
+            ./build.sh jackalsimulator True
