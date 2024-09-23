@@ -3,11 +3,14 @@
 set -e
 
 # Import repositories from vcs file
+echo "Cloning repositories ..."
 mkdir -p src
 vcs import < planner.repos src --recursive 
 # vcs import < lab.repos src --recursive # Uncomment to clone lab packages
+echo "Done cloning repositories."
 
 # Switch to ROS1 mode
+echo "Switching to ROS 1 ..."
 cd src
 cd mpc_planner
 python3 switch_to_ros.py 1
@@ -25,8 +28,10 @@ cd pedestrian_simulator
 python3 switch_to_ros.py 1
 cd ..
 cd ..
+echo "Done, all repos are in ROS1 mode."
 
 # Install Acados
+echo "Installing Acados ..."
 git clone https://github.com/acados/acados.git
 cd acados
 git submodule update --recursive --init
@@ -35,13 +40,15 @@ cd build
 cmake -DACADOS_SILENT=ON ..
 make install -j4
 make shared_library
+echo "Acados is installed."
 
 install_poetry() {
-    echo "Installing Poetry..."
+    echo "Installing Poetry ..."
     python3 -m pip install poetry
     echo "Installed Poetry succesfully."
 }
 
+echo "Checking the poetry installation"
 if command -v poetry &> /dev/null
 then
     echo "Poetry is not installed."
@@ -64,6 +71,8 @@ then
                 ;;
         esac
     fi
+else
+    echo "Poetry is already installed"
 fi
 
 echo "Poetry is installed."
