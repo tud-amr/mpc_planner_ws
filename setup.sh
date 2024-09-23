@@ -36,17 +36,44 @@ cmake -DACADOS_SILENT=ON ..
 make install -j4
 make shared_library
 
+install_poetry() {
+    echo "Installing Poetry..."
+    python3 -m pip install poetry
+    echo "Installed Poetry succesfully."
+}
+
 if command -v poetry &> /dev/null
 then
-    echo "Poetry is installed."
-else
-    cd src/mpc_planner
-    poetry lock
-    poetry install --no-interaction --no-root
-    poetry add -e /acados/interfaces/acados_template
-    cd ../..
-    echo "Done."
+    echo "Poetry is not installed."
+    if [[ "$1" == "-y" ]]; then
+        install_poetry
+    else
+         # Ask the user for confirmation
+        read -p "Do you want to install Poetry now? (y/n): " response
+        case "$response" in
+            [yY][eE][sS]|[yY])
+                install_poetry
+                ;;
+            [nN][oO]|[nN])
+                echo "Installation aborted."
+                exit 0
+                ;;
+            *)
+                echo "Invalid input. Please enter y or n."
+                exit 0
+                ;;
+        esac
+    fi
 fi
+
+echo "Poetry is installed."
+cd src/mpc_planner
+poetry lock
+poetry install --no-interaction --no-root
+poetry add -e /acados/interfaces/acados_template
+cd ../..
+echo "Done."
+
 
 # Install dependencies
 sudo apt-get update -y
