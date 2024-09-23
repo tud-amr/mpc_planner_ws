@@ -18,6 +18,7 @@ jobs:
         with:
           # Change this to be your CI task/script
           runCmd: |
+            sed -i 's|https://github.com/|https://${{ secrets.CI_REPO_PAT }}@github.com/|g' planner.repos
             chmod +x setup.sh
             chmod +x build.sh
             ./setup.sh
