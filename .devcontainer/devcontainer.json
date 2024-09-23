@@ -32,7 +32,6 @@
 		"--volume=/dev/input:/dev/input",
 		"--volume=/etc/localtime:/etc/localtime",
 		"--ipc=host",
-		"--runtime=nvidia",
 		"--privileged"
     ]
 }
