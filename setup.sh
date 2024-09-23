@@ -51,17 +51,14 @@ echo "Acados is installed."
 
 install_poetry() {
     echo "Installing Poetry ..."
-    python3 -m venv $VENV_PATH
-    $VENV_PATH/bin/pip install -U pip setuptools
-    $VENV_PATH/bin/pip install poetry
+    python3 -m pip install poetry
     echo "Installed Poetry succesfully."
-    $VENV_PATH/bin/poetry lock
+    python3 -m poetry lock
 }
 
 echo "Checking the poetry installation"
 cd src/mpc_planner
-# if ! command -v python3 -m poetry &> /dev/null
-if ! $VENV_PATH/bin/poetry lock; then
+if ! python3 -m poetry lock; then
     echo "Poetry is not installed."
     if [[ "$1" == "-y" ]]; then
         install_poetry
@@ -87,8 +84,8 @@ cd ../..
 
 echo "Poetry is installed."
 cd /workspace/src/mpc_planner
-$VENV_PATH/bin/poetry install --no-interaction --no-root
-$VENV_PATH/bin/poetry add -e /workspace/acados/interfaces/acados_template
+python3 -m poetry install --no-interaction --no-root
+python3 -m poetry add -e /workspace/acados/interfaces/acados_template
 cd ../..
 echo "Done."
 

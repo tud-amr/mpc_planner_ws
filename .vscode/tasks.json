@@ -4,7 +4,7 @@
         // JackalSimulator
         {
             "label": "JackalSimulator: Generate Solver",
-            "command": "cd src/mpc_planner && /workspace/poetry/bin/poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
+            "command": "cd src/mpc_planner && python3 -m poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -20,7 +20,7 @@
             "label": "JackalSimulator: Build",
             "detail": "Build the ROS Package mpc_planner_jackalsimulator",
             "type": "shell",
-            "command": "source /workspace/devel/setup.bash && ./build.sh jackalsimulator",
+            "command": "./build.sh jackalsimulator",
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -56,7 +56,7 @@
         // ROS Navigation Stack
         {
             "label": "ROS Navigation: Generate Solver",
-            "command": "cd src/mpc_planner && /workspace/poetry/bin/poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
+            "command": "cd src/mpc_planner && python3 -m poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -107,7 +107,7 @@
         },
         {
             "label": "Run Tests",
-            "command": "source devel/setup.bash && cd src/mpc_planner && /workspace/poetry/bin/poetry run python -m pytest solver_generator/test/ --cov-report term --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70", //--cov-report=xml:solver_generator/coverage.xml --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70",
+            "command": "source devel/setup.bash && cd src/mpc_planner && python3 -m poetry run python -m pytest solver_generator/test/ --cov-report term --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70", //--cov-report=xml:solver_generator/coverage.xml --cov-config=solver_generator/test/.coveragerc --cov --cov-fail-under=70",
             "type": "shell",
             "group": {
                 "kind": "build",
