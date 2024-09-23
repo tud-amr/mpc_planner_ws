@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+export VENV_PATH="/workspace/poetry"
 
 # Import repositories from vcs file
 echo "Cloning repositories ..."
@@ -50,13 +51,17 @@ echo "Acados is installed."
 
 install_poetry() {
     echo "Installing Poetry ..."
-    pip install poetry
+    python3 -m venv $VENV_PATH
+    $VENV_PATH/bin/pip install -U pip setuptools
+    $VENV_PATH/bin/pip install poetry
     echo "Installed Poetry succesfully."
+    $VENV_PATH/bin/poetry lock
 }
 
 echo "Checking the poetry installation"
-if ! command -v python3 -m poetry &> /dev/null
-then
+cd src/mpc_planner
+# if ! command -v python3 -m poetry &> /dev/null
+if ! $VENV_PATH/bin/poetry lock; then
     echo "Poetry is not installed."
     if [[ "$1" == "-y" ]]; then
         install_poetry
@@ -78,12 +83,12 @@ then
         esac
     fi
 fi
+cd ../..
 
 echo "Poetry is installed."
-cd src/mpc_planner
-python3 -m poetry lock
-python3 -m poetry install --no-interaction --no-root
-python3 -m poetry add -e /workspace/acados/interfaces/acados_template
+cd /workspace/src/mpc_planner
+$VENV_PATH/bin/poetry install --no-interaction --no-root
+$VENV_PATH/bin/poetry add -e /workspace/acados/interfaces/acados_template
 cd ../..
 echo "Done."
 

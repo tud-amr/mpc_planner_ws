@@ -26,6 +26,7 @@ RUN apt-get update && apt-get install -y \
     python3-vcstool \
     python3-wstool \
     python3-catkin-tools \
+    python3.8-venv \
     iproute2 \
     && rm -rf /var/lib/apt/lists/*
 

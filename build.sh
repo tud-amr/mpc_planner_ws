@@ -13,6 +13,7 @@ fi
 # Acados
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/workspace/acados/lib
 export ACADOS_SOURCE_DIR="/workspace/acados"
+export POETRY_PATH="/workspace/poetry/bin/poetry"
 
 # Generate a solver if enabled
 if [ -z "$2" ]; then
@@ -21,7 +22,7 @@ else
   # Check if the argument equals "True" or "true"
   if [ "$2" = "True" ] || [ "$2" = "true" ]; then
     cd src/mpc_planner
-    python3 -m poetry run python mpc_planner_$1/scripts/generate_$1_solver.py
+    $POETRY_PATH run python mpc_planner_$1/scripts/generate_$1_solver.py
 
     if  [ ${PIPESTATUS[0]} -eq 0 ]
     then
