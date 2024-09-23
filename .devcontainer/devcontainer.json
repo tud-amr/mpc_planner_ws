@@ -34,7 +34,7 @@
 		"--volume=/dev/input:/dev/input",
 		"--volume=/etc/localtime:/etc/localtime",
 		"--ipc=host",
-        "--runtime=nvidia", // Comment in the CI
+        "--runtime=nvidia", // Comment if no nvidia runtime is available
 		"--privileged"
     ]
 }
