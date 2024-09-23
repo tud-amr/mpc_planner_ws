@@ -51,6 +51,7 @@ jobs:
             source /opt/ros/noetic/setup.sh && source /workspace/devel/setup.bash && source /workspace/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch
 
       - name: Check result
+        id: check_file
         uses: devcontainers/ci@v0.3
         with:
           runCmd: |
