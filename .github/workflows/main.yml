@@ -77,5 +77,6 @@ jobs:
       - name: Run step if file size is large enough
         uses: devcontainers/ci@v0.3
         if: steps.check_file.outputs.file_large_enough == 'true'
+        with:
           runCmd: |
             echo "Running the experiment succeeded."
