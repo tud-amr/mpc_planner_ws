@@ -38,5 +38,5 @@ jobs:
             mv guidance_planner src/guidance_planner
             chmod +x setup.sh
             chmod +x build.sh
-            ./setup.sh
+            ./setup.sh -y
             ./build.sh jackalsimulator True
