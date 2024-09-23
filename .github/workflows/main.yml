@@ -35,12 +35,47 @@ jobs:
           path: src/guidance_planner
           ref: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
 
-      - name: Build and run dev container task
+      - name: Build dev container task
         uses: devcontainers/ci@v0.3
         with:
-          # Change this to be your CI task/script
           runCmd: |
             chmod +x setup.sh
             chmod +x build.sh
             ./setup.sh -y
             ./build.sh jackalsimulator True
+
+      - name: Run dev container task
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+            source /opt/ros/noetic/setup.sh && source /workspace/devel/setup.bash && source /workspace/fix_console.sh && roslaunch mpc_planner_jackalsimulator ros1_jackalsimulator.launch
+
+      - name: Check result
+        uses: devcontainers/ci@v0.3
+        with:
+          runCmd: |
+            FILE="/workspace/src/mpc_planner/data/none.txt"
+            MIN_SIZE_KB=10  # Set the minimum file size in KB
+            
+            if [ -f "$FILE" ]; then
+              FILE_SIZE=$(du -k "$FILE" | cut -f1)  # Get file size in KB
+              if [ "$FILE_SIZE" -ge "$MIN_SIZE_KB" ]; then
+                echo "File size is greater than or equal to ${MIN_SIZE_KB} KB"
+                echo "::set-output name=file_large_enough::true"
+              else
+                echo "File size is smaller than ${MIN_SIZE_KB} KB"
+                echo "::set-output name=file_large_enough::false"
+                exit 1  # Exit with failure if the file size is too small
+              fi
+            else
+              echo "File does not exist"
+              echo "::set-output name=file_large_enough::false"
+              exit 1  # Exit with failure if the file doesn't exist
+            fi
+
+        # Step 3: Do something if the file is large enough
+      - name: Run step if file size is large enough
+        uses: devcontainers/ci@v0.3
+        if: steps.check_file.outputs.file_large_enough == 'true'
+          runCmd: |
+            echo "Running the experiment succeeded."
