@@ -1,10 +1,16 @@
 #!/bin/bash
 # Arguments: system_type generate_solver
+
 clear
 
 . /opt/ros/noetic/setup.sh
-. workspace/devel/setup.sh
 
+# Source the workspace if it exists
+if [ -f workspace/devel/setup.sh ]; then
+  . workspace/devel/setup.sh
+fi
+
+# Generate a solver if enabled
 if [ -z "$2" ]; then
   echo "Not rebuilding the solver."
 else
@@ -26,9 +32,7 @@ else
   fi
 fi
 
-# BUILD_TYPE=Debug # Release, Debug, RelWithDebInfo, MinSizeRel
 BUILD_TYPE=RelWithDebInfo # Release, Debug, RelWithDebInfo, MinSizeRel
 catkin config --cmake-args -DCMAKE_BUILD_TYPE=$BUILD_TYPE
 
-# catkin build mpc_planner_jackalsimulator
-catkin build mpc_planner_jackal
+catkin build mpc_planner_$1
