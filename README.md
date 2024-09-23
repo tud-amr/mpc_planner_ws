@@ -6,9 +6,11 @@ O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Topology-Driven Paral
 
 O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* IEEE International Conference on Robotics and Automation (ICRA) 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
 
-<p>Example: Dynamic obstacles</p>            |  <p>Example: Dynamic and static obstacles</p>
-:-------------------------:|:-------------------------:
-<img src="docs/tmpc.gif" width="400"> | <img src="docs/rosnavigation.gif" width="850">
+
+ Jackal Simulator | ROS Navigation Stack |
+| ------------- | ------------- |
+|<img src="docs/tmpc.gif" width="350"> | <img src="docs/rosnavigation.gif" width="650">|
+
 
 ---
 
