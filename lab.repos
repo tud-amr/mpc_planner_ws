@@ -1,0 +1,9 @@
+repositories:
+    vicon_bridge:
+        type: git
+        url: https://github.com/cor-mobile-robotics/vicon_bridge.git
+        version: fe21ad84732ce5ee0ee27cb5b1a9b68207f3b212
+    vicon_util:
+        type: git
+        url: https://github.com/tud-amr/vicon_util.git
+        version: 5b9f176a24ae96bb2b96e17a75157688c9fa2830
