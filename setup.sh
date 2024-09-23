@@ -31,25 +31,32 @@ cd ..
 echo "Done, all repos are in ROS1 mode."
 
 # Install Acados
-echo "Installing Acados ..."
-git clone https://github.com/acados/acados.git
-cd acados
-git submodule update --recursive --init
-mkdir -p build
-cd build
-cmake -DACADOS_SILENT=ON ..
-make install -j4
-make shared_library
+if [ ! -d "/workspace/acados/build" ]; then
+    echo "Installing Acados ..."
+    git clone https://github.com/acados/acados.git
+    cd acados
+    git submodule update --recursive --init
+    mkdir -p build
+    cd build
+    cmake -DACADOS_SILENT=ON ..
+    make install -j4
+    cd ../bin
+    wget https://github.com/acados/tera_renderer/releases/download/v0.0.34/t_renderer-v0.0.34-linux
+    mv t_renderer-v0.0.34-linux t_renderer
+    chmod +x t_renderer
+    cd ../..
+    # make shared_library
+fi
 echo "Acados is installed."
 
 install_poetry() {
     echo "Installing Poetry ..."
-    python3 -m pip install poetry
+    pip install poetry
     echo "Installed Poetry succesfully."
 }
 
 echo "Checking the poetry installation"
-if command -v poetry &> /dev/null
+if ! command -v python3 -m poetry &> /dev/null
 then
     echo "Poetry is not installed."
     if [[ "$1" == "-y" ]]; then
@@ -71,15 +78,13 @@ then
                 ;;
         esac
     fi
-else
-    echo "Poetry is already installed"
 fi
 
 echo "Poetry is installed."
 cd src/mpc_planner
-poetry lock
-poetry install --no-interaction --no-root
-poetry add -e /acados/interfaces/acados_template
+python3 -m poetry lock
+python3 -m poetry install --no-interaction --no-root
+python3 -m poetry add -e /workspace/acados/interfaces/acados_template
 cd ../..
 echo "Done."
 
