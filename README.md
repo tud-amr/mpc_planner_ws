@@ -1,3 +1,7 @@
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+![CI](https://github.com/tud-amr/mpc_planner_ws/actions/workflows/main.yml/badge.svg)
+
+
 # MPC Planner Workspace (VSCode Docker)
 This repository provides a complete VSCode docker environment for running the `mpc_planner` (see `https://github.com/tud-amr/mpc_planner` for the planner documentation). The code is associated with the following publications:
 
