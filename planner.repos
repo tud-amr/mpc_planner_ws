@@ -26,8 +26,12 @@ repositories:
     jackal_simulator:
         type: git
         url: https://github.com/oscardegroot/jackal_simulator.git
-        version: f97553e29fb48c55852e0e60be531b5d4f641e01
+        version: 70f32759a97c08829faa9f30805fee6b9ba2e9fa
     asr_rapidxml:
         type: git
         url: https://github.com/oscardegroot/asr_rapidxml.git
         version: 16d1f87d7d5230995f72491d2b2da545065ebc08
+    decomp_util:
+        type: git
+        url: https://github.com/oscardegroot/DecompUtil.git
+        version: b4211a130ada47d458105a3a29559d3f6caa52c4
