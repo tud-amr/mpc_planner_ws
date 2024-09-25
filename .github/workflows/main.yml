@@ -30,10 +30,10 @@ jobs:
       - name: Checkout private guidance planner
         uses: actions/checkout@v3
         with:
-          repository: oscardegroot/guidance_planner
+          repository: tud-amr/guidance_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: src/guidance_planner
-          ref: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
+          ref: main
 
       - name: Build dev container task
         uses: devcontainers/ci@v0.3

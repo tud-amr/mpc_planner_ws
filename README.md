@@ -3,17 +3,17 @@
 
 
 # MPC Planner Workspace (VSCode Docker)
-This repository provides a complete VSCode docker environment for running the `mpc_planner` (see `https://github.com/tud-amr/mpc_planner` for the planner documentation). The code is associated with the following publications:
+This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). The code is associated with the following publications:
 
-O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* IEEE Transactions on Robotics 2024. Preprint: http://arxiv.org/abs/2401.06021
+**Journal Paper:** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* IEEE Transactions on Robotics 2024. Preprint: http://arxiv.org/abs/2401.06021
 
 
-O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* IEEE International Conference on Robotics and Automation (ICRA) 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
+**Conference Paper:** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* IEEE International Conference on Robotics and Automation (ICRA) 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
 
 
  Jackal Simulator | ROS Navigation Stack |
 | ------------- | ------------- |
-|<img src="docs/tmpc.gif" width="350"> | <img src="docs/rosnavigation.gif" width="650">|
+|<img src="docs/tmpc.gif" width="100%"> | <img src="docs/rosnavigation.gif" width="100%">|
 
 
 ---
@@ -56,9 +56,11 @@ chmod +x build.sh
 
 Required repositories and dependencies will be installed.
 
-The open-source **Acados** solver (`https://docs.acados.org/`) is installed by default. Dependencies of the solver generation are installed automatically with poetry in `setup.sh`. You will be prompted to install `poetry`.
+The open-source **Acados** solver (https://docs.acados.org/) is installed by default. Dependencies of the solver generation are installed automatically with poetry in `setup.sh`. You will be prompted to install `poetry`.
 
-For the licensed **Forces Pro** solver (`https://www.embotech.com/softwareproducts/forcespro/overview/`) used in the papers, installation instructions are included below. 
+For the licensed **Forces Pro** solver (https://www.embotech.com/softwareproducts/forcespro/overview/) used in the papers, installation instructions are included below. 
+
+> **Note:** To use Forces Pro in the containerized environment, a floating license is required. If you have a regular license you cannot use it in the containerized environment. Instead, you can try to install the planner outside of the container (see https://github.com/tud-amr/mpc_planner).
 
 <details>
     <summary><h3  style="display:inline-block"> Forces Pro (optional)</h3></summary>
