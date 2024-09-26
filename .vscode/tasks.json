@@ -83,7 +83,7 @@
             "label": "ROS Navigation: Generate solver and build",
             "detail": "Generate the solver and build the mpc package configured in build.sh",
             "type": "shell",
-            "command": "./build.sh rosnavigation true",
+            "command": "source fix_console.sh && ./build.sh rosnavigation true",
             "group": {
                 "kind": "build",
                 "isDefault": true

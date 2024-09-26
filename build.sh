@@ -1,5 +1,5 @@
 #!/bin/bash
-# Arguments: system_type generate_solver
+# Usage: ./build.sh <system_name> <generate_solver>
 cd /workspace
 clear
 
@@ -37,6 +37,6 @@ else
 fi
 
 BUILD_TYPE=RelWithDebInfo # Release, Debug, RelWithDebInfo, MinSizeRel
-catkin config --cmake-args -DCMAKE_BUILD_TYPE=$BUILD_TYPE
+catkin config --cmake-args -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DPYTHON_VERSION=3
 
 catkin build mpc_planner_$1
