@@ -3,7 +3,9 @@
 
 
 # MPC Planner Workspace (VSCode Docker)
-This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). The code is associated with the following publications:
+This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). 
+
+The code is associated with the following publications:
 
 **Journal Paper:** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* IEEE Transactions on Robotics 2024. Preprint: http://arxiv.org/abs/2401.06021
 
@@ -13,7 +15,7 @@ This repository provides a complete VSCode docker environment for running the `m
 
  Jackal Simulator | ROS Navigation Stack |
 | ------------- | ------------- |
-|<img src="docs/tmpc.gif" width="100%"> | <img src="docs/rosnavigation.gif" width="100%">|
+|<img src="docs/tmpc.gif" width="100%"> | <img src="https://imgur.com/QgYDTRq.gif" width="100%">|
 
 
 ---
@@ -71,7 +73,7 @@ You will need to set up both a regular and floating solver.
 **Regular Solver:** Go to my.embotech.com, log in to your account. Assign a regular license to your computer. Then download the client to `~/forces_pro_client/` **outside of the container**. If you have the solver in a different location, add its path to `PYTHONPATH`.
 
 **Floating Solver:**
-Go to my.embotech.com, log in to your account. Click on a license -> Download `Floating Licenses Proxy Standalone (Linux 64-bit) - FORCES PRO v5.1.0 onwards` -> unzip. In the downloaded folder, `chmod +x forcespro_floating_licenses_proxy`. Then to start the solver proxy (necessary to run it), execute:
+Go to my.embotech.com, log in to your account. Click on a license -> Download `Floating Licenses Proxy Standalone (Linux 64-bit) - FORCES PRO v5.1.0 onwards` **outside of the container** -> unzip. In the downloaded folder, `chmod +x forcespro_floating_licenses_proxy`. Then to start the solver proxy (necessary to run it), execute:
 `./forcespro_floating_licenses_proxy`.
 
 To use the floating license, set `solver_settings/floating_license` in `mpc_planner_<your_system>/config/settings.yaml` to `true`. 
@@ -123,25 +125,22 @@ To change the detected obstacles, see `ros1_jackal.launch`.
 ### Jackal Simulator
 Task: `JackalSimulator: Run Simulator`
 
-The following example features 
+The following example features **Topology-driven MPC (T-MPC++) [1]** with a reference tracking cost and dynamic obstacle avoidance (*using ellipsoidal obstacles*) 
 
-- Topology-driven MPC (T-MPC++) for dynamic obstacle avoidance (using ellipsoidal obstacles) [1]
-- Model Predictive Contouring Control (MPCC)
+Applied to the Clearpath Jackal mobile robot (`mpc_planner_jackalsimulator`) in an environment with pedestrians.
 
-Applied to the Clearpath Jackal UGV (`mpc_planner_jackalsimulator`) with dynamic obstacles.
-
-<img src="docs/tmpc.gif" width="400">
+<img src="docs/tmpc.gif" width="60%">
 
 
 ### ROS Navigation stack 
 Task: `ROSNavigation: Run Simulator`
 
 Navigation with static and dynamic obstacles. This example features
-- Topology-Driven MPC for dynamic obstacle avoidance [1]
-- Curvature-Aware MPC (https://ieeexplore.ieee.org/document/10161177)
-- Decomp Util for static obstacle avoidance (https://arxiv.org/pdf/2406.11506)
+- **Topology-Driven MPC** for dynamic obstacle avoidance [1]
+- **Curvature-Aware MPC** for reference tracking (https://ieeexplore.ieee.org/document/10161177)
+- **Decomp Util** for static obstacle avoidance (https://arxiv.org/pdf/2406.11506)
 
-<img src="docs/rosnavigation.gif" width="800">
+<img src="docs/rosnavigation.gif" width="100%">
 
 
 ## License
@@ -150,7 +149,7 @@ This project is licensed under the Apache 2.0 license - see the LICENSE file for
 ## Citing
 This repository was developed at the Cognitive Robotics group of Delft University of Technology by [Oscar de Groot](https://github.com/oscardegroot) in partial collaboration with [Dennis Benders](https://github.com/dbenders1) and [Thijs Niesten](https://github.com/thijs83) and under supervision of Dr. Laura Ferranti, Dr. Javier Alonso-Mora and Prof. Dariu Gavrila.
 
-If you found this repository useful, please cite the following paper:
+If you found this repository useful, please cite our paper:
 
 - [1] **Topology-Driven Model Predictive Control (T-MPC)** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, “Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.” arXiv, Jan. 11, 2024. [Online]. Available: http://arxiv.org/abs/2401.06021
 <!-- - **Safe Horizon Model Predictive Control (SH-MPC)** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, “Scenario-Based Motion Planning with Bounded Probability of Collision.” arXiv, Jul. 03, 2023. [Online]. Available: https://arxiv.org/pdf/2307.01070.pdf

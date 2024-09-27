@@ -121,8 +121,30 @@
             }
         },
         {
-            "label": "Run Jackal (REAL)",
-            "command": "source devel/setup.bash && roslaunch mpc_planner_jackal ros1_jackal.launch",
+            "label": "Jackal: Generate solver and build",
+            "detail": "Generate the solver and build mpc_planner_jackal",
+            "type": "shell",
+            "command": "./build.sh jackal true",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Jackal: Build",
+            "detail": "Build the ROS Package mpc_planner_jackal",
+            "type": "shell",
+            "command": "./build.sh jackal",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Jackal: Run Real-World Jackal",
+            "command": "source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
             "type": "shell",
             "group": {
                 "kind": "build",
