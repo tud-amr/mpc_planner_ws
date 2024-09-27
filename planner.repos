@@ -10,11 +10,11 @@ repositories:
     ros_tools:
         type: git
         url: https://github.com/oscardegroot/ros_tools.git
-        version: 23a80c3f1e8792599323e406bc3f291a31555b21
+        version: 324da46df91b50673622e559d45256d9af342831
     pedestrian_simulator:
         type: git
         url: https://github.com/oscardegroot/pedestrian_simulator.git
-        version: 614f34c6687a38dfc9e8320fb7b04591d0f7a1ee
+        version: d5f01ed989514bfd04d9faddb28305b9a9eee32b
     pedsim_original:
         type: git
         url: https://github.com/oscardegroot/pedsim_original.git
