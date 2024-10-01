@@ -35,7 +35,7 @@ jobs:
           repository: oscardegroot/guidance_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: src/guidance_planner
-          ref: dev
+          ref: main
 
       - name: Build dev container task
         uses: devcontainers/ci@v0.3
