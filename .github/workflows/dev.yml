@@ -1,9 +1,11 @@
 name: 'build' 
 on: # rebuild any PRs and main branch changes
   pull_request:
+    branches:
+      - dev
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   build:
@@ -25,15 +27,15 @@ jobs:
           repository: oscardegroot/mpc_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: src/mpc_planner
-          ref: main
+          ref: dev
 
       - name: Checkout private guidance planner
         uses: actions/checkout@v3
         with:
-          repository: tud-amr/guidance_planner
+          repository: oscardegroot/guidance_planner
           token: ${{ secrets.CI_REPO_PAT }}
           path: src/guidance_planner
-          ref: main
+          ref: dev
 
       - name: Build dev container task
         uses: devcontainers/ci@v0.3
