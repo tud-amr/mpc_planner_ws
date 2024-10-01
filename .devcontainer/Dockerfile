@@ -41,6 +41,8 @@ ENV SHELL /bin/bash
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 ENV QT_X11_NO_MITSHM 1
+ENV LD_LIBRARY_PATH /acados/lib
+ENV ACADOS_SOURCE_DIR=/acados
 
 # Set the working directory
 WORKDIR /workspace
