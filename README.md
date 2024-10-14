@@ -3,14 +3,12 @@
 
 
 # MPC Planner Workspace (VSCode Docker)
-This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). 
+This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). The code is associated with the following publications:
 
-The code is associated with the following publications:
-
-**Journal Paper:** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* IEEE Transactions on Robotics 2024. Preprint: http://arxiv.org/abs/2401.06021
+**Journal Paper:** O. de Groot, L. Ferranti, D. M. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* **IEEE Transactions on Robotics (T-RO)** 2024. Available: https://doi.org/10.1109/TRO.2024.3475047
 
 
-**Conference Paper:** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* IEEE International Conference on Robotics and Automation (ICRA) 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
+**Conference Paper:** O. de Groot, L. Ferranti, D. M. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* **IEEE International Conference on Robotics and Automation (ICRA)** 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
 
 
  Jackal Simulator | ROS Navigation Stack |
@@ -62,13 +60,10 @@ The open-source **Acados** solver (https://docs.acados.org/) is installed by def
 
 For the licensed **Forces Pro** solver (https://www.embotech.com/softwareproducts/forcespro/overview/) used in the papers, installation instructions are included below. 
 
-> **Note:** To use Forces Pro in the containerized environment, a floating license is required. If you have a regular license you cannot use it in the containerized environment. Instead, you can try to install the planner outside of the container (see https://github.com/tud-amr/mpc_planner).
+> **Note:** To use Forces Pro in the containerized environment, both a floating and regular license is required. If you only have a regular license, you cannot use it in the containerized environment. Instead, you can try to install the planner outside of the container (see https://github.com/tud-amr/mpc_planner).
 
 <details>
     <summary><h3  style="display:inline-block"> Forces Pro (optional)</h3></summary>
-Note that a Floating license is required to run Forces Pro in the docker container.
-
-You will need to set up both a regular and floating solver.
 
 **Regular Solver:** Go to my.embotech.com, log in to your account. Assign a regular license to your computer. Then download the client to `~/forces_pro_client/` **outside of the container**. If you have the solver in a different location, add its path to `PYTHONPATH`.
 
@@ -151,6 +146,6 @@ This repository was developed at the Cognitive Robotics group of Delft Universit
 
 If you found this repository useful, please cite our paper:
 
-- [1] **Topology-Driven Model Predictive Control (T-MPC)** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, “Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.” arXiv, Jan. 11, 2024. [Online]. Available: http://arxiv.org/abs/2401.06021
+- [1] **Journal Paper:** O. de Groot, L. Ferranti, D. M. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* **IEEE Transactions on Robotics (T-RO)** 2024. Available: https://doi.org/10.1109/TRO.2024.3475047
 <!-- - **Safe Horizon Model Predictive Control (SH-MPC)** O. de Groot, L. Ferranti, D. Gavrila, and J. Alonso-Mora, “Scenario-Based Motion Planning with Bounded Probability of Collision.” arXiv, Jul. 03, 2023. [Online]. Available: https://arxiv.org/pdf/2307.01070.pdf
 - **Scenario-based Model Predictive Contouring Control (S-MPCC)** O. de Groot, B. Brito, L. Ferranti, D. Gavrila, and J. Alonso-Mora, “Scenario-Based Trajectory Optimization in Uncertain Dynamic Environments,” IEEE RA-L, pp. 5389–5396, 2021. -->

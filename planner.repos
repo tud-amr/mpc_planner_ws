@@ -2,15 +2,15 @@ repositories:
     # mpc_planner:
     #     type: git
     #     url: https://github.com/oscardegroot/mpc_planner.git
-    #     version: 6535b3fe855f590dde8193cf6e2902f057adc8b9
-    # guidance_planner:
-    #     type: git
-    #     url: https://github.com/oscardegroot/guidance_planner.git
-    #     version: ec153a69ce0bb1b40b6c89f7a06c235c199ab6d8
+    #     version: a99aae8044ad0b86f2abce01a20db422ab455c30
+    guidance_planner:
+        type: git
+        url: https://github.com/oscardegroot/guidance_planner.git
+        version: 02f34a4008ef596a4992a55ee27af2f93cef383d
     ros_tools:
         type: git
         url: https://github.com/oscardegroot/ros_tools.git
-        version: 324da46df91b50673622e559d45256d9af342831
+        version: 419b458a04432ff3b272e6479f259fdb58a1c94c
     pedestrian_simulator:
         type: git
         url: https://github.com/oscardegroot/pedestrian_simulator.git
