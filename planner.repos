@@ -5,7 +5,7 @@ repositories:
     #     version: a99aae8044ad0b86f2abce01a20db422ab455c30
     guidance_planner:
         type: git
-        url: https://github.com/oscardegroot/guidance_planner.git
+        url: https://github.com/tud-amr/guidance_planner.git
         version: 02f34a4008ef596a4992a55ee27af2f93cef383d
     ros_tools:
         type: git
