@@ -1,6 +1,5 @@
 {
     "editor.formatOnSave": true,
-    "editor.selectionClipboard": false,
     "files.associations": {
         "cctype": "cpp",
         "clocale": "cpp",

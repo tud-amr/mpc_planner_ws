@@ -27,14 +27,6 @@ jobs:
           path: src/mpc_planner
           ref: main
 
-      - name: Checkout private guidance planner
-        uses: actions/checkout@v3
-        with:
-          repository: tud-amr/guidance_planner
-          token: ${{ secrets.CI_REPO_PAT }}
-          path: src/guidance_planner
-          ref: main
-
       - name: Build dev container task
         uses: devcontainers/ci@v0.3
         with:
