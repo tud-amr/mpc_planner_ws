@@ -3,13 +3,16 @@
 
 
 # MPC Planner Workspace (VSCode Docker)
-This repository provides a complete VSCode docker environment for running the `mpc_planner` (see https://github.com/tud-amr/mpc_planner for the planner documentation). The code is associated with the following publications:
+This repository provides a complete VSCode docker environment for running MPC planner `mpc_planner` (see https://github.com/tud-amr/mpc_planner) and global guidance planner `guidance_planner` (see https://github.com/tud-amr/guidance_planner) that together make up **Topology-Driven MPC** (**T-MPC++**). 
+
+T-MPC computes multiple distinct trajectories in parallel, each passing dynamic obstacles differently. For a brief overview of the method, see the [paper website](https://autonomousrobots.nl/paper_websites/topology-driven-mpc). It also includes a simulation environment for a mobile robot navigating among pedestrians. The code is associated with the following publications:
 
 **Journal Paper:** O. de Groot, L. Ferranti, D. M. Gavrila, and J. Alonso-Mora, *Topology-Driven Parallel Trajectory Optimization in Dynamic Environments.* **IEEE Transactions on Robotics (T-RO)** 2024. Available: https://doi.org/10.1109/TRO.2024.3475047
 
 
 **Conference Paper:** O. de Groot, L. Ferranti, D. M. Gavrila, and J. Alonso-Mora, *Globally Guided Trajectory Optimization in Dynamic Environments.* **IEEE International Conference on Robotics and Automation (ICRA)** 2023. Available: https://doi.org/10.1109/ICRA48891.2023.10160379
 
+---
 
  Jackal Simulator | ROS Navigation Stack |
 | ------------- | ------------- |
@@ -31,6 +34,7 @@ This repository provides a complete VSCode docker environment for running the `m
 For features of the base planner, see `https://github.com/tud-amr/mpc_planner`. This repository combines other repositories for:
 
 - Motion planning in 2D dynamic environments (`mpc_planner`)
+- Global guidance planning in 2D dynamic environments (`guidance_planner`)
 - Simulating pedestrians with Social Forces (`pedestrian_simulator`)
 - Defining reference paths (`roadmap`)
 - Simulating the Clearpath Jackal (`jackal_simulator`)

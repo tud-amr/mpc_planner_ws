@@ -1,8 +1,8 @@
 repositories:
-    # mpc_planner:
-    #     type: git
-    #     url: https://github.com/oscardegroot/mpc_planner.git
-    #     version: a99aae8044ad0b86f2abce01a20db422ab455c30
+    mpc_planner:
+        type: git
+        url: https://github.com/tud-amr/mpc_planner.git
+        version: f9a44c9531d87acec91b673cf38f89871cd7ed3d
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
