@@ -2,7 +2,7 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/tud-amr/mpc_planner.git
-        version: f9a44c9531d87acec91b673cf38f89871cd7ed3d
+        version: 5f40374610afaf7c9065cb20d69279135618df68
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
@@ -14,7 +14,7 @@ repositories:
     pedestrian_simulator:
         type: git
         url: https://github.com/oscardegroot/pedestrian_simulator.git
-        version: d5f01ed989514bfd04d9faddb28305b9a9eee32b
+        version: 41f61ad421d769efc1f63d5e797c62a684bad218
     pedsim_original:
         type: git
         url: https://github.com/oscardegroot/pedsim_original.git

@@ -50,6 +50,9 @@ In VSCode install these extensions:
 
 Clone this repository. In VSCode: `open_folder` -> open `mpc_planner_ws`. It will show a pop-up: click `Reopen in container`. It will build the container. This will take some time.
 
+> **Note:** For colleagues from CoR at the TU Delft using the Vicon, please uncomment in `setup.sh` the line `vcs import < lab.repos src --recursive` to clone lab packages for the Vicon system. 
+
+
 Then, in the VSCode terminal run:
 
 ```bash
