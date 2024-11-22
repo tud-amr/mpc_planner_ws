@@ -2,7 +2,7 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/tud-amr/mpc_planner.git
-        version: 5f40374610afaf7c9065cb20d69279135618df68
+        version: d9bc195a93e0e1aca50a2d47f29cd99286051ff4
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
