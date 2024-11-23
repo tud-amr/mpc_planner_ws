@@ -36,6 +36,8 @@ if [ ! -d "/workspace/acados/build" ]; then
     echo "Installing Acados ..."
     git clone https://github.com/acados/acados.git
     cd acados
+     # Specific commit (remove to change to newest version)
+    git checkout c48cf1135b779fb4582358da89c119f7c481dcea
     git submodule update --recursive --init
     mkdir -p build
     cd build
