@@ -2,11 +2,11 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/tud-amr/mpc_planner.git
-        version: d9bc195a93e0e1aca50a2d47f29cd99286051ff4
+        version: 767c881cc285dec2ed1441a31d4fc33adc32c160
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
-        version: 02f34a4008ef596a4992a55ee27af2f93cef383d
+        version: 463d84765b3641e8ccdd066b92f7b73d63527357
     ros_tools:
         type: git
         url: https://github.com/oscardegroot/ros_tools.git
