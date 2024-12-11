@@ -2,7 +2,7 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/tud-amr/mpc_planner.git
-        version: 767c881cc285dec2ed1441a31d4fc33adc32c160
+        version: 9f4a476de891d05e8150a61fac7446b2c37fe56d
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
@@ -35,3 +35,7 @@ repositories:
         type: git
         url: https://github.com/oscardegroot/DecompUtil.git
         version: b4211a130ada47d458105a3a29559d3f6caa52c4
+    scenario_module:
+        type: git
+        url: https://github.com/oscardegroot/scenario_module.git
+        version: c11addbb7239752d585beb181e8f9197893c6c53
