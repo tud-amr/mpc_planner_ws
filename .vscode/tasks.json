@@ -56,7 +56,7 @@
         // ROS Navigation Stack
         {
             "label": "ROS Navigation: Generate Solver",
-            "command": "cd src/mpc_planner && python3 -m poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python mpc_planner_rosnavigation/scripts/generate_rosnavigation_solver.py",
             "type": "shell",
             "group": {
                 "kind": "build",
@@ -144,7 +144,7 @@
         },
         {
             "label": "Jackal: Run Real-World Jackal",
-            "command": "source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
+            "command": "source ./connect_to_jackal.sh && source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
             "type": "shell",
             "group": {
                 "kind": "build",
