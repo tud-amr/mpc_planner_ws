@@ -4,7 +4,7 @@
         // JackalSimulator
         {
             "label": "JackalSimulator: Generate Solver",
-            "command": "cd src/mpc_planner && python3 -m poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
+            "command": "source fix_console.sh && cd src/mpc_planner && python3 -m poetry run python mpc_planner_jackalsimulator/scripts/generate_jackalsimulator_solver.py",
             "type": "shell",
             "group": {
                 "kind": "build",
