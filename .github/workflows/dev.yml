@@ -21,13 +21,13 @@ jobs:
       - name: Disable NVidia runtime in the container
         run: sed -i '/"--runtime=nvidia",/d' .devcontainer/devcontainer.json
         
-      - name: Checkout private planner
-        uses: actions/checkout@v3
-        with:
-          repository: oscardegroot/mpc_planner
-          token: ${{ secrets.CI_REPO_PAT }}
-          path: src/mpc_planner
-          ref: dev
+      # - name: Checkout private planner
+      #   uses: actions/checkout@v3
+      #   with:
+      #     repository: oscardegroot/mpc_planner
+      #     token: ${{ secrets.CI_REPO_PAT }}
+      #     path: src/mpc_planner
+      #     ref: dev
 
       - name: Build dev container task
         uses: devcontainers/ci@v0.3

@@ -144,7 +144,7 @@
         },
         {
             "label": "Jackal: Run Real-World Jackal",
-            "command": "source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
+            "command": "source ./connect_to_jackal.sh && source devel/setup.bash && source fix_console.sh && roslaunch mpc_planner_jackal ros1_jackal.launch",
             "type": "shell",
             "group": {
                 "kind": "build",

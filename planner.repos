@@ -2,15 +2,15 @@ repositories:
     mpc_planner:
         type: git
         url: https://github.com/tud-amr/mpc_planner.git
-        version: 767c881cc285dec2ed1441a31d4fc33adc32c160
+        version: cc71e45fcd8263b1a43d2af500c3696860b4b8a5
     guidance_planner:
         type: git
         url: https://github.com/tud-amr/guidance_planner.git
-        version: 463d84765b3641e8ccdd066b92f7b73d63527357
+        version: 2c4188371e18e2fb3d083e0867b5e4d537a42860
     ros_tools:
         type: git
         url: https://github.com/oscardegroot/ros_tools.git
-        version: 419b458a04432ff3b272e6479f259fdb58a1c94c
+        version: f2ff45830961db8d3d813ee4769f27eea708e989
     pedestrian_simulator:
         type: git
         url: https://github.com/oscardegroot/pedestrian_simulator.git
@@ -35,3 +35,7 @@ repositories:
         type: git
         url: https://github.com/oscardegroot/DecompUtil.git
         version: b4211a130ada47d458105a3a29559d3f6caa52c4
+    scenario_module:
+        type: git
+        url: https://github.com/oscardegroot/scenario_module.git
+        version: c11addbb7239752d585beb181e8f9197893c6c53
